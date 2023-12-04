@@ -59,13 +59,11 @@ pipeline {
                     def releaseExists = sh(script: "helm list -q | grep mars-rover-fleet-management", returnStatus: true) == 0
 
                     if (releaseExists) {
-                        // Upgrade Helm chart
                         sh 'helm upgrade mars-rover-fleet-management ./helm'
                     } else {
-                        // Install Helm chart
                         sh 'helm install mars-rover-fleet-management ./helm'
-                        sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
-                        sh 'helm install prometheus prometheus-community/prometheus'
+                        sh 'helm install prometheus prometheus-community/prometheus --values ./helm/promethus/values.yml'
+                        sh 'helm install grafana grafana/grafana --values ./helm/grafana/values.yml'
                     }
                 }
             }

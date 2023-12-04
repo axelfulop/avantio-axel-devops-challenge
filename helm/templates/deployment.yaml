@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "mars-rover-fleet-tracker.fullname" . }}
+  name: {{ include "mars-rover-fleet-tracker.name" . }}
   labels:
     {{- include "mars-rover-fleet-tracker.labels" . | nindent 4 }}
 spec:

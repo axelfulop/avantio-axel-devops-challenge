@@ -34,6 +34,7 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "mars-rover-fleet-tracker.labels" -}}
+
 helm.sh/chart: {{ include "mars-rover-fleet-tracker.chart" . }}
 {{ include "mars-rover-fleet-tracker.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
