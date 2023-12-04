@@ -1,0 +1,9 @@
+apiVersion: v2
+name: mars-rover-fleet-tracker
+description: A Helm chart for Kubernetes
+
+type: application
+
+version: ""
+
+appVersion: "0.1.0"

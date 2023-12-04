@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mars-rover-fleet-tracker.fullname" . }}
+  labels:
+    {{- include "mars-rover-fleet-tracker.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: web
+      port: {{ .Values.service.port }}
+      protocol: TCP
+      targetPort: http
+  selector:
+    {{- include "mars-rover-fleet-tracker.selectorLabels" . | nindent 4 }}
