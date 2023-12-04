@@ -1,8 +1,8 @@
 pipeline {
-  agent any
+    agent any
     
-  stages {
-    stage("Clone code from GitHub") {
+    stages {
+        stage("Clone code from GitHub") {
             steps {
                 script {
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GITHUB_CREDENTIALS', url: 'https://github.com/axelfulop/avantio-axel-devops-challenge']])
@@ -10,41 +10,50 @@ pipeline {
             }
         }
      
-  
-     stage('Build  Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t  axelfulop123/mars-rover-fleet-management .'
+                    sh 'docker build -t axelfulop123/mars-rover-fleet-management .'
                 }
             }
         }
 
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh 'npm install'
+                    sh 'npm run test:e2e'
+                }
+            }
+        }
 
         stage('Deploy Docker Image to DockerHub') {
             steps {
                 script {
-                 withCredentials([string(credentialsId: 'docker_pw', variable: 'docker_pw')]) {
-                    sh 'docker login -u axelfulop123 -p ${docker_pw}'
+                    withCredentials([string(credentialsId: 'docker_pw', variable: 'docker_pw')]) {
+                        sh 'docker login -u axelfulop123 -p ${docker_pw}'
+                        sh 'docker push axelfulop123/mars-rover-fleet-management'
+                    }
+                }   
             }
-            sh 'docker push axelfulop123/mars-rover-fleet-management'
-        }
-            }   
         }
          
-     stage('Deploying helm chrt on eks') {
-      steps {
-        script {
-          sh ('aws eks update-kubeconfig --name dev-us-east-1-eks-cluster --region us-east-1')
-            def releaseExists = sh(script: "helm list -q | grep mars-rover-fleet-management", returnStatus: true) == 0
+        stage('Deploying Helm Chart on EKS') {
+            steps {
+                script {
+                    sh 'aws eks update-kubeconfig --name dev-us-east-1-eks-cluster --region us-east-1'
+                    def releaseExists = sh(script: "helm list -q | grep mars-rover-fleet-management", returnStatus: true) == 0
 
-            if (releaseExists) {
-                // Upgrade Helm chart
-                sh 'helm upgrade mars-rover-fleet-management ./helm'
-            } else {
-                // Install Helm chart
-                sh 'helm install mars-rover-fleet-management ./helm'
-                sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
-                sh 'helm install prometheus prometheus-community/prometheus'
+                    if (releaseExists) {
+                        // Upgrade Helm chart
+                        sh 'helm upgrade mars-rover-fleet-management ./helm'
+                    } else {
+                        // Install Helm chart
+                        sh 'helm install mars-rover-fleet-management ./helm'
+                        sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
+                        sh 'helm install prometheus prometheus-community/prometheus'
+                    }
+                }
             }
         }
     }

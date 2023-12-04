@@ -31,8 +31,19 @@ Para este ejemplo, asumimos que su PROFILE es avantio y que queremos implementar
 1) En este punto traté de utilizar la metodología keep it simple
 2) Tuve que agregar babel types al package json de la app ya que faltaba agregarlo para poder correr la app
 3) Para crear los charts de Helm utilice un helper que ayuda a la redudancia y repeticiôn de codigo
-4) El pipeline fue creado en Jenkins, el cual me permite testearlo localmente, pero hubiese utilizado ArgoCI. Se deben configurar los secretos y el SCM.
+4) El pipeline fue creado en Jenkins, el cual me permite testearlo localmente, pero hubiese utilizado ArgoCI o GitOps. Se deben configurar los secretos y el SCM.
 
 Se pueden hacer algunas mejoras como optimizar el tiempo con la cache, paralelismo, self runners pero quería dejarlo simple
+Se deberan configurar los secretos y el SCM
+Para los secretos como pueden ser las credenciales de Docker, git, etc, se pueden utilizar Vault, AWS Secrets Manager, etc.
+
+Se podría haber implementado un pipeline de CI/CD con ArgoCD, Flux, etc. Para este ejemplo, utilicé Jenkins, ya que es una herramienta que conozco y me permite testear el pipeline localmente. Utilizando GitOps el esquema sería el siguiente:
+Codigo => Git => Jenkins => Docker => ECR => ArgoCD => K8s
+
+De esta manera el estado deseado de la infraestructura se encuentra en el repositorio de Git y ArgoCD se encarga de mantener el estado actual de la infraestructura en el cluster de K8s. 
+
+Podemos seguir aplicando los charts de helm.
+
+Separamos las credenciales para el ci y el cd, como tambien reducimos el numero de componentes
 
 ### Tarea 3:
