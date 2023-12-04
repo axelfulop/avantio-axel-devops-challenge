@@ -43,6 +43,8 @@ pipeline {
             } else {
                 // Install Helm chart
                 sh 'helm install mars-rover-fleet-management ./helm'
+                sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
+                sh 'helm install prometheus prometheus-community/prometheus'
             }
         }
     }
