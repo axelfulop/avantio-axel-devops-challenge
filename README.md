@@ -25,3 +25,14 @@ Para este ejemplo, asumimos que su PROFILE es avantio y que queremos implementar
 1) Ejecute el siguiente comando sh deploy.sh avantio dev us-east-1, luego elija la opción 1. Esto creará el S3 y la base de datos DynamoDB donde se almacenan los estados y los identificadores de bloqueo de estado.
 2) Una vez ejecutado el apply, puede elegir la opción dos, que implementará la red, EKS y SQS.
 3) Luego, puede eliminar los recursos con terraform destroy sobre la carpeta dev.
+
+### Tarea 2: 
+
+1) En este punto traté de utilizar la metodología keep it simple
+2) Tuve que agregar babel types al package json de la app ya que faltaba agregarlo para poder correr la app
+3) Para crear los charts de Helm utilice un helper que ayuda a la redudancia y repeticiôn de codigo
+4) El pipeline fue creado en Jenkins, el cual me permite testearlo localmente, pero hubiese utilizado ArgoCI. Se deben configurar los secretos y el SCM.
+
+Se pueden hacer algunas mejoras como optimizar el tiempo con la cache, paralelismo, self runners pero quería dejarlo simple
+
+### Tarea 3:
