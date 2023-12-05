@@ -56,6 +56,14 @@ Separamos las credenciales para el ci y el cd, como tambien reducimos el numero 
 
 Adjunto imagenes sobre el dashboard de grafana:
 
+## Dash
 
+![Dashboard](https://raw.github.com/axelfulop/avantio-axel-devops-challenge/main/images/dash.png)
+
+## Alertas
+
+![Alert](https://raw.github.com/axelfulop/avantio-axel-devops-challenge/main/images/alert.png)
+
+![Alerts](https://raw.github.com/axelfulop/avantio-axel-devops-challenge/main/images/alerts.png)
 
 
