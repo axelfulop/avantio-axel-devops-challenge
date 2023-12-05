@@ -1,0 +1,450 @@
+{
+    "apiVersion": 1,
+    "groups": [
+      {
+        "orgId": 1,
+        "name": "Wind above 50",
+        "folder": "WindAlert",
+        "interval": "1m",
+        "rules": [
+          {
+            "uid": "ce755b15-aaef-4713-8b09-290c4866fd4e",
+            "title": "Wind perservanse above 50 m/s",
+            "condition": "A",
+            "data": [
+              {
+                "refId": "A",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "builder",
+                  "expr": "round(wind_speed{rover_name=~\"perseverance\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "B",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "round(wind_speed{rover_name=~\"perseverance\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "B",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "C",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "__expr__",
+                "model": {
+                  "conditions": [
+                    {
+                      "evaluator": {
+                        "params": [
+                          0,
+                          0
+                        ],
+                        "type": "gt"
+                      },
+                      "operator": {
+                        "type": "and"
+                      },
+                      "query": {
+                        "params": []
+                      },
+                      "reducer": {
+                        "params": [],
+                        "type": "avg"
+                      },
+                      "type": "query"
+                    }
+                  ],
+                  "datasource": {
+                    "name": "Expression",
+                    "type": "__expr__",
+                    "uid": "__expr__"
+                  },
+                  "expression": "$A > 50",
+                  "intervalMs": 1000,
+                  "maxDataPoints": 43200,
+                  "refId": "C",
+                  "type": "math"
+                }
+              }
+            ],
+            "noDataState": "NoData",
+            "execErrState": "Error",
+            "for": "1m",
+            "annotations": {
+              "summary": "Trigger alert when wind exceeds 50 kph"
+            },
+            "isPaused": false
+          },
+          {
+            "uid": "be0cb1fd-ece4-485f-be25-c1a174e1fea2",
+            "title": "Wind curiosity above 50 m/s",
+            "condition": "A",
+            "data": [
+              {
+                "refId": "A",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "builder",
+                  "expr": "round(wind_speed{rover_name=~\"curiosity\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "B",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "round(wind_speed{rover_name=~\"curiosity\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "B",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "C",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "__expr__",
+                "model": {
+                  "conditions": [
+                    {
+                      "evaluator": {
+                        "params": [
+                          0,
+                          0
+                        ],
+                        "type": "gt"
+                      },
+                      "operator": {
+                        "type": "and"
+                      },
+                      "query": {
+                        "params": []
+                      },
+                      "reducer": {
+                        "params": [],
+                        "type": "avg"
+                      },
+                      "type": "query"
+                    }
+                  ],
+                  "datasource": {
+                    "name": "Expression",
+                    "type": "__expr__",
+                    "uid": "__expr__"
+                  },
+                  "expression": "$A > 50",
+                  "intervalMs": 1000,
+                  "maxDataPoints": 43200,
+                  "refId": "C",
+                  "type": "math"
+                }
+              }
+            ],
+            "noDataState": "NoData",
+            "execErrState": "Error",
+            "for": "1m",
+            "annotations": {
+              "summary": "Trigger alert when wind exceeds 50 kph"
+            },
+            "isPaused": false
+          },
+          {
+            "uid": "bf237858-78fc-4102-98e6-6777a1689fa9",
+            "title": "Wind opportunity above 50 m/s ",
+            "condition": "A",
+            "data": [
+              {
+                "refId": "A",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "builder",
+                  "expr": "round(wind_speed{rover_name=~\"opportunity\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "B",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "round(wind_speed{rover_name=~\"opportunity\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "B",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "C",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "__expr__",
+                "model": {
+                  "conditions": [
+                    {
+                      "evaluator": {
+                        "params": [
+                          0,
+                          0
+                        ],
+                        "type": "gt"
+                      },
+                      "operator": {
+                        "type": "and"
+                      },
+                      "query": {
+                        "params": []
+                      },
+                      "reducer": {
+                        "params": [],
+                        "type": "avg"
+                      },
+                      "type": "query"
+                    }
+                  ],
+                  "datasource": {
+                    "name": "Expression",
+                    "type": "__expr__",
+                    "uid": "__expr__"
+                  },
+                  "expression": "$A > 50",
+                  "intervalMs": 1000,
+                  "maxDataPoints": 43200,
+                  "refId": "C",
+                  "type": "math"
+                }
+              }
+            ],
+            "noDataState": "NoData",
+            "execErrState": "Error",
+            "for": "1m",
+            "annotations": {
+              "description": "",
+              "runbook_url": "",
+              "summary": "Trigger alert when wind exceeds 50 kph"
+            },
+            "labels": {
+              "": ""
+            },
+            "isPaused": false
+          },
+          {
+            "uid": "b201237d-3421-4b4e-aae0-ab25482b04c0",
+            "title": "Wind opportunity above 50 m/s (copy)",
+            "condition": "A",
+            "data": [
+              {
+                "refId": "A",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "builder",
+                  "expr": "round(wind_speed{rover_name=~\"spirit\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "B",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                "model": {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "round(wind_speed{rover_name=~\"spirit\"}, 1)",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "instant": true,
+                  "intervalMs": 1000,
+                  "legendFormat": "__auto",
+                  "maxDataPoints": 43200,
+                  "range": false,
+                  "refId": "B",
+                  "useBackend": false
+                }
+              },
+              {
+                "refId": "C",
+                "relativeTimeRange": {
+                  "from": 600,
+                  "to": 0
+                },
+                "datasourceUid": "__expr__",
+                "model": {
+                  "conditions": [
+                    {
+                      "evaluator": {
+                        "params": [
+                          0,
+                          0
+                        ],
+                        "type": "gt"
+                      },
+                      "operator": {
+                        "type": "and"
+                      },
+                      "query": {
+                        "params": []
+                      },
+                      "reducer": {
+                        "params": [],
+                        "type": "avg"
+                      },
+                      "type": "query"
+                    }
+                  ],
+                  "datasource": {
+                    "name": "Expression",
+                    "type": "__expr__",
+                    "uid": "__expr__"
+                  },
+                  "expression": "$A > 50",
+                  "intervalMs": 1000,
+                  "maxDataPoints": 43200,
+                  "refId": "C",
+                  "type": "math"
+                }
+              }
+            ],
+            "noDataState": "NoData",
+            "execErrState": "Error",
+            "for": "1m",
+            "annotations": {
+              "summary": "Trigger alert when wind exceeds 50 kph"
+            },
+            "isPaused": false
+          }
+        ]
+      }
+    ]
+  }

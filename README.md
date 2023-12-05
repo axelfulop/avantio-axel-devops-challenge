@@ -47,3 +47,15 @@ Podemos seguir aplicando los charts de helm.
 Separamos las credenciales para el ci y el cd, como tambien reducimos el numero de componentes
 
 ### Tarea 3:
+
+1) Para esta tarea utilice los charts de prometheus y grafana
+2) Para prometheus sobreescribi el values.yaml para agregar el scrapeo de la app
+3) Grafana lo deje con los valores por defecto
+4) En la carpeta grafana_example pueden encontrar algunas alertas que cree para la app
+
+
+Adjunto imagenes sobre el dashboard de grafana:
+
+
+
+

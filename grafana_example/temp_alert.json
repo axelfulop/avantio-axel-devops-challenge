@@ -1,0 +1,344 @@
+{
+    "apiVersion": 1,
+    "groups": [
+        {
+            "orgId": 1,
+            "name": "Temperature between -80 and 20",
+            "folder": "Temperature Alert",
+            "interval": "30s",
+            "rules": [
+                {
+                    "uid": "c2997f45-fb09-4e4f-a8e7-03587a866879",
+                    "title": "Temperature  curiosity rule between -80 and 20",
+                    "condition": "C",
+                    "data": [
+                        {
+                            "refId": "A",
+                            "relativeTimeRange": {
+                                "from": 600,
+                                "to": 0
+                            },
+                            "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                            "model": {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                                },
+                                "disableTextWrap": false,
+                                "editorMode": "builder",
+                                "exemplar": false,
+                                "expr": "round(temperature{rover_name=\"curiosity\"}, 1)",
+                                "fullMetaSearch": false,
+                                "includeNullMetadata": true,
+                                "instant": true,
+                                "intervalMs": 1000,
+                                "legendFormat": "__auto",
+                                "maxDataPoints": 43200,
+                                "range": false,
+                                "refId": "A",
+                                "useBackend": false
+                            }
+                        },
+                        {
+                            "refId": "C",
+                            "relativeTimeRange": {
+                                "from": 0,
+                                "to": 0
+                            },
+                            "datasourceUid": "__expr__",
+                            "model": {
+                                "conditions": [
+                                    {
+                                        "evaluator": {
+                                            "params": [
+                                                0,
+                                                0
+                                            ],
+                                            "type": "gt"
+                                        },
+                                        "operator": {
+                                            "type": "and"
+                                        },
+                                        "query": {
+                                            "params": []
+                                        },
+                                        "reducer": {
+                                            "params": [],
+                                            "type": "avg"
+                                        },
+                                        "type": "query"
+                                    }
+                                ],
+                                "datasource": {
+                                    "name": "Expression",
+                                    "type": "__expr__",
+                                    "uid": "__expr__"
+                                },
+                                "expression": "$A > 20 && $A < -80",
+                                "hide": false,
+                                "intervalMs": 1000,
+                                "maxDataPoints": 43200,
+                                "refId": "C",
+                                "type": "math"
+                            }
+                        }
+                    ],
+                    "noDataState": "NoData",
+                    "execErrState": "Error",
+                    "for": "1m",
+                    "isPaused": false
+                },
+                {
+                    "uid": "fe6e3831-2f1e-4d34-ad39-b0b98967b27f",
+                    "title": "Temperature  opportunity rule between -80 and 20",
+                    "condition": "C",
+                    "data": [
+                        {
+                            "refId": "A",
+                            "relativeTimeRange": {
+                                "from": 600,
+                                "to": 0
+                            },
+                            "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                            "model": {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                                },
+                                "disableTextWrap": false,
+                                "editorMode": "builder",
+                                "exemplar": false,
+                                "expr": "round(temperature{rover_name=\"opportunity\"}, 1)",
+                                "fullMetaSearch": false,
+                                "includeNullMetadata": true,
+                                "instant": true,
+                                "intervalMs": 1000,
+                                "legendFormat": "__auto",
+                                "maxDataPoints": 43200,
+                                "range": false,
+                                "refId": "A",
+                                "useBackend": false
+                            }
+                        },
+                        {
+                            "refId": "C",
+                            "relativeTimeRange": {
+                                "from": 0,
+                                "to": 0
+                            },
+                            "datasourceUid": "__expr__",
+                            "model": {
+                                "conditions": [
+                                    {
+                                        "evaluator": {
+                                            "params": [
+                                                0,
+                                                0
+                                            ],
+                                            "type": "gt"
+                                        },
+                                        "operator": {
+                                            "type": "and"
+                                        },
+                                        "query": {
+                                            "params": []
+                                        },
+                                        "reducer": {
+                                            "params": [],
+                                            "type": "avg"
+                                        },
+                                        "type": "query"
+                                    }
+                                ],
+                                "datasource": {
+                                    "name": "Expression",
+                                    "type": "__expr__",
+                                    "uid": "__expr__"
+                                },
+                                "expression": "$A > 20 && $A < - 80",
+                                "hide": false,
+                                "intervalMs": 1000,
+                                "maxDataPoints": 43200,
+                                "refId": "C",
+                                "type": "math"
+                            }
+                        }
+                    ],
+                    "noDataState": "NoData",
+                    "execErrState": "Error",
+                    "for": "1m",
+                    "isPaused": false
+                },
+                {
+                    "uid": "f94d89e2-5475-4ed3-9c8b-b90e1c8a225d",
+                    "title": "Temperature  perseverance rule between -80 and 20 ",
+                    "condition": "B",
+                    "data": [
+                        {
+                            "refId": "A",
+                            "relativeTimeRange": {
+                                "from": 600,
+                                "to": 0
+                            },
+                            "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                            "model": {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                                },
+                                "disableTextWrap": false,
+                                "editorMode": "builder",
+                                "exemplar": false,
+                                "expr": "round(temperature{rover_name=\"perseverance\"}, 1)",
+                                "fullMetaSearch": false,
+                                "includeNullMetadata": true,
+                                "instant": true,
+                                "intervalMs": 1000,
+                                "legendFormat": "__auto",
+                                "maxDataPoints": 43200,
+                                "range": false,
+                                "refId": "A",
+                                "useBackend": false
+                            }
+                        },
+                        {
+                            "refId": "B",
+                            "relativeTimeRange": {
+                                "from": 0,
+                                "to": 0
+                            },
+                            "datasourceUid": "__expr__",
+                            "model": {
+                                "conditions": [
+                                    {
+                                        "evaluator": {
+                                            "params": [
+                                                0,
+                                                0
+                                            ],
+                                            "type": "gt"
+                                        },
+                                        "operator": {
+                                            "type": "and"
+                                        },
+                                        "query": {
+                                            "params": []
+                                        },
+                                        "reducer": {
+                                            "params": [],
+                                            "type": "avg"
+                                        },
+                                        "type": "query"
+                                    }
+                                ],
+                                "datasource": {
+                                    "name": "Expression",
+                                    "type": "__expr__",
+                                    "uid": "__expr__"
+                                },
+                                "expression": "$A > 20 && $A < -80",
+                                "hide": false,
+                                "intervalMs": 1000,
+                                "maxDataPoints": 43200,
+                                "refId": "B",
+                                "type": "math"
+                            }
+                        }
+                    ],
+                    "noDataState": "NoData",
+                    "execErrState": "Error",
+                    "for": "1m",
+                    "isPaused": false
+                },
+                {
+                    "uid": "b4219fae-d824-4f10-b524-c757037855a7",
+                    "title": "Temperature  spirit rule between -80 and 20",
+                    "condition": "C",
+                    "data": [
+                        {
+                            "refId": "A",
+                            "relativeTimeRange": {
+                                "from": 600,
+                                "to": 0
+                            },
+                            "datasourceUid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05",
+                            "model": {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "db5c3bc4-1d45-4058-bcc1-6bc15d2cfe05"
+                                },
+                                "disableTextWrap": false,
+                                "editorMode": "builder",
+                                "exemplar": false,
+                                "expr": "round(temperature{rover_name=\"spirit\"}, 1)",
+                                "fullMetaSearch": false,
+                                "includeNullMetadata": true,
+                                "instant": true,
+                                "intervalMs": 1000,
+                                "legendFormat": "__auto",
+                                "maxDataPoints": 43200,
+                                "range": false,
+                                "refId": "A",
+                                "useBackend": false
+                            }
+                        },
+                        {
+                            "refId": "C",
+                            "relativeTimeRange": {
+                                "from": 0,
+                                "to": 0
+                            },
+                            "datasourceUid": "__expr__",
+                            "model": {
+                                "conditions": [
+                                    {
+                                        "evaluator": {
+                                            "params": [
+                                                0,
+                                                0
+                                            ],
+                                            "type": "gt"
+                                        },
+                                        "operator": {
+                                            "type": "and"
+                                        },
+                                        "query": {
+                                            "params": []
+                                        },
+                                        "reducer": {
+                                            "params": [],
+                                            "type": "avg"
+                                        },
+                                        "type": "query"
+                                    }
+                                ],
+                                "datasource": {
+                                    "name": "Expression",
+                                    "type": "__expr__",
+                                    "uid": "__expr__"
+                                },
+                                "expression": "$A > 20 && $A < -80",
+                                "intervalMs": 1000,
+                                "maxDataPoints": 43200,
+                                "refId": "C",
+                                "type": "math"
+                            }
+                        }
+                    ],
+                    "noDataState": "NoData",
+                    "execErrState": "Error",
+                    "for": "1m",
+                    "annotations": {
+                        "description": "",
+                        "runbook_url": "",
+                        "summary": ""
+                    },
+                    "labels": {
+                        "": ""
+                    },
+                    "isPaused": false
+                }
+            ]
+        }
+    ]
+}
